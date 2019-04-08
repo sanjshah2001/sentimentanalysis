@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tmseries
+  labels:
+     app: tsdata
+[InternetShortcut]
+URL=https://github.com/FSUSIAZURE/sentimentanalysis
+
+spec:
+  containers:
+  - name: gettsdata
+    image: finservreg.azurecr.io/timeseries
+    tty: true
+
+  - name: pushtsdata
+    image: finservreg.azurecr.io/timeseries
+    tty: true

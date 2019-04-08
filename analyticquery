@@ -1,0 +1,9 @@
+SELECT
+CAST(T1.Price AS FLOAT(4)) AS Price,
+CAST(T2.Date AS datetime) AS Date, 
+CAST(T2.Sentiment AS FLOAT(4)) AS Sentiment
+INTO sentimentanalysis
+FROM tsinput T1
+JOIN sentiinput T2
+ON T1.PDate=T2.Date
+AND DATEDIFF( minute , T1 , T2 ) BETWEEN 0 AND 15

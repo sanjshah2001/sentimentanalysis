@@ -1,0 +1,59 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  paths:
+   include: [gettsdata.py]
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+    azureSubscriptionEndpoint: finservrg
+    azureContainerRegistry: finservreg.azureacr.io
+    Build.Repository.Name: timeseries
+
+steps:
+- task: Docker@1
+  displayName: Container registry login
+  inputs:
+    command: login
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+
+
+- task: Docker@1
+  displayName: Build image
+  inputs:
+    command: Build an image
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: Dockerfile
+    imageName: $(Build.Repository.Name)
+
+- task: Docker@1
+  displayName: Tag image
+  inputs:
+    command: Tag image
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    imageName: $(azureContainerRegistry)/$(Build.Repository.Name):latest
+    arguments: $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)
+
+- task: Docker@1
+  displayName: Push image
+  inputs:
+    command: Push an image
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    imageName: $(Build.Repository.Name):$(Build.BuildId)
+
+- task: Docker@1
+  displayName: Run image
+  inputs:
+    command: Run an image
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    imageName: $(Build.Repository.Name):$(Build.BuildId)
