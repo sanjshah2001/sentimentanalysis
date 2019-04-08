@@ -12,7 +12,7 @@ pool:
 
 variables:
     azureSubscriptionEndpoint: finservrg
-    azureContainerRegistry: finservreg.azureacr.io
+    azureContainerRegistry: finservreg.azurecr.io
     Build.Repository.Name: timeseries
 
 steps:
