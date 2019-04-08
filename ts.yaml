@@ -5,9 +5,6 @@ metadata:
   name: tmseries
   labels:
      app: tsdata
-[InternetShortcut]
-URL=https://github.com/FSUSIAZURE/sentimentanalysis
-
 spec:
   containers:
   - name: gettsdata
