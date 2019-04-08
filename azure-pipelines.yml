@@ -57,3 +57,12 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
     imageName: $(Build.Repository.Name):$(Build.BuildId)
+    
+- task: CopyFiles@2
+  displayName: 'Copy Files'
+  inputs:
+    Contents: ts.yaml
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts: drop'
