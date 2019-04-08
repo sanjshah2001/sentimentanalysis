@@ -3,7 +3,7 @@
 # This script will receive pricing and sentiment feed from data provider
 # Usage: gettsdata.py -i <TickerSymbol> -r <RANGE> -m <MONTH> -d <DAY> -y <YEAR>
 # Example: gettsdata.py -i TWTR -r 365 -m 1 -d 1 -y 2016 or just run the script
-# Ensure data provider has valid data for Sybol provided.  For testing, leverage default values provided by running script without any arguments
+# Ensure data provider has valid data for Symbol provided.  For testing, leverage default values provided by running script without any arguments
 
 import quandl
 import datetime
