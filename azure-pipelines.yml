@@ -4,13 +4,8 @@
 # https://aka.ms/yaml
 
 trigger:
-  batch: true
-  branches:
-    include:
-    - *
-  paths:
-    exclude:
-    - README.md
+- master
+- develop
 
 pool:
   vmImage: 'Ubuntu-16.04'
