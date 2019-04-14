@@ -4,8 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
+  batch: true
+  branches:
+    include:
+    - *
   paths:
-   include: [gettsdata.py]
+    exclude:
+    - README.md
 
 pool:
   vmImage: 'Ubuntu-16.04'
