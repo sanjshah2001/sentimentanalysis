@@ -40,7 +40,7 @@ def main(argv):
          da_y = int(arg)
 
 # INPUT YOUR API KEY HERE
- quandl.ApiConfig.api_key = "m-JCBdkJbfX-UUYhYciZ"
+ quandl.ApiConfig.api_key = "<YOUR KEY>"
 
 # Temporary store of input data
  sd = open("senti_data", "w+")
