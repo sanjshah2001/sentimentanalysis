@@ -5,4 +5,5 @@ RUN pip install python-dateutil
 RUN pip install azure-eventhub
 RUN mkdir /app
 COPY gettsdata.py /app
+COPY pushtsdata.py /app
 WORKDIR /app
