@@ -40,15 +40,23 @@ def main(argv):
 
 # Get pricing data from static file created using gettsdata.py script
  if FILE_DATA == "price_data":
-        ADDRESS="sb://tseventhubsns.servicebus.windows.net/tseventhubs"
-        USER = "MyPolicy"
-        KEY = "6BvkotYo1seDId4e/3Qquniw1z3pJbHounFQvwPdpnk="
+        #ADDRESS="sb://tseventhubsns.servicebus.windows.net/tseventhubs"
+        #USER = "MyPolicy"
+        #KEY = "6BvkotYo1seDId4e/3Qquniw1z3pJbHounFQvwPdpnk="
+        ADDRESS = sb://<Your event hub namespace>.servicebus.windows.net/<Your event hub name for price data>
+        USER = <Your shared access policy name for price data>
+        KEY = <generated key for price data>
+
 
 # Get sentiment from static file created using gettsdata.py script
  elif FILE_DATA == "senti_data":
-        ADDRESS="sb://tseventhubsns.servicebus.windows.net/sentieventhub"
-        USER = "sentipolicy"
-        KEY = "uaOBlwB6S7rEaIm7ju2oibYM0/SaMwHJhBHdNIF8ugw="
+        #ADDRESS="sb://tseventhubsns.servicebus.windows.net/sentieventhub"
+        #USER = "sentipolicy"
+        #KEY = "uaOBlwB6S7rEaIm7ju2oibYM0/SaMwHJhBHdNIF8ugw="
+        ADDRESS = sb://<Your event hub namespace>.servicebus.windows.net/<Your event hub name for sentiment data>
+        USER = <Your shared access policy name for sentiment data>
+        KEY = <generated key for sentiment data>
+
 
  try:
     if not ADDRESS:
