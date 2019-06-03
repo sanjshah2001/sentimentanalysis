@@ -13,10 +13,14 @@ import getopt
 def main(argv):
 
 # Pre-define day range and stock symbol in case user don't provide them
- rang_e = 365
- yea_r = 2016
- mont_h = 1
+ rang_e = 20
+ yea_r = 2017
+ mont_h = 6
  da_y = 1
+ 
+# Simulation of sentiment data for 2018 as provider do not have data for 2017 as free sample
+ syea_r = 2018
+
  TickerSymbol = 'TWTR'
 
  try:
@@ -47,12 +51,14 @@ def main(argv):
  pd = open("price_data", "w+")
 
  dat_e = datetime.datetime(yea_r, mont_h, da_y)
+ sdat_e = datetime.datetime(syea_r, mont_h, da_y)
 
  for DAYS in range(rang_e):
     dat_e += datetime.timedelta(days=1)
+    sdat_e += datetime.timedelta(days=1)
 
 # Fetch data using quandle API
-    senti_data = quandl.get_table('IFT/NSA', date=dat_e, ticker=TickerSymbol)
+    senti_data = quandl.get_table('IFT/NSA', date=sdat_e, ticker=TickerSymbol)
     mkt_data = quandl.get_table('WIKI/PRICES', qopts = { 'columns': ['ticker', 'date', 'close'] }, ticker = [TickerSymbol], date = dat_e, paginate=False)
     senti_str = str(senti_data)
     senti_split =  senti_str.split()
