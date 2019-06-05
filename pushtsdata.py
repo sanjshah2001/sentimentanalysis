@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python
 
 # Script to push pricing and sentiment data to Azure Eventbus
 # Usage: pushtsdata.py -i price_data
