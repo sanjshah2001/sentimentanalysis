@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python
 
 # This script will receive pricing and sentiment feed from data provider
 # Usage: gettsdata.py -i <TickerSymbol> -r <RANGE> -m <MONTH> -d <DAY> -y <YEAR>
