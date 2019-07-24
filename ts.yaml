@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: finservpod5
+  name: finservpod6
   labels:
      app: tsdata
 spec:
   containers:
   - name: gettsdata
-    image: jpworkshop.azurecr.io/timeseries
+    image: jpworkshop.azurecr.io/sanjshah2001/sentimentanalysis:latest
     tty: true
 
   - name: pushtsdata
-    image: jpworkshop.azurecr.io/timeseries
+    image: jpworkshop.azurecr.io/sanjshah2001/sentimentanalysis:latest
     tty: true
