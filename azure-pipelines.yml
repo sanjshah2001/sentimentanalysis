@@ -13,16 +13,7 @@ pool:
 variables:
     azureSubscriptionEndpoint: tempcon
     azureContainerRegistry: jpworkshop.azurecr.io
-    Build.Repository.Name: sanjshah2001/sentimentanalysis
-
-steps:
-- task: Docker@1
-  displayName: Container registry login
-  inputs:
-    command: login
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-
+    Build.Repository.Name: timeseries
 
 - task: Docker@1
   displayName: Build image
