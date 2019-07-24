@@ -11,8 +11,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-    azureSubscriptionEndpoint: dockerregjp
-    azureContainerRegistry: https://index.docker.io/v1/
+    azureSubscriptionEndpoint: tempcon
+    azureContainerRegistry: jpworkshop.azurecr.io
     Build.Repository.Name: timeseries
     
 steps:
