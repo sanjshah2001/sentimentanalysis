@@ -11,7 +11,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-    azureSubscriptionEndpoint: aconreg
+    azureSubscriptionEndpoint: tempcon
     azureContainerRegistry: jpworkshop.azurecr.io
     Build.Repository.Name: timeseries
 
