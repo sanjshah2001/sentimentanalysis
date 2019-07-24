@@ -41,7 +41,7 @@ steps:
     command: Push an image
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    imageName: $(Build.Repository.Name):$(Build.BuildId)/$(Image)
+    imageName: $(Build.Repository.Name)/$(Image):$(Build.BuildId)
 
 - task: Docker@1
   displayName: Run image
@@ -49,7 +49,7 @@ steps:
     command: Run an image
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    imageName: $(Build.Repository.Name):$(Build.BuildId)/$(Image)
+    imageName: $(Build.Repository.Name)/$(Image):$(Build.BuildId)
     
 - task: CopyFiles@2
   displayName: 'Copy Files'
