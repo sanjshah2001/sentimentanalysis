@@ -14,7 +14,8 @@ variables:
     azureSubscriptionEndpoint: tempcon
     azureContainerRegistry: jpworkshop.azurecr.io
     Build.Repository.Name: timeseries
-
+    
+steps:
 - task: Docker@1
   displayName: Build image
   inputs:
