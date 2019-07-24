@@ -13,7 +13,8 @@ pool:
 variables:
     azureSubscriptionEndpoint: tempcon
     azureContainerRegistry: jpworkshop.azurecr.io
-    Build.Repository.Name: timeseries
+    Build.Repository.Name: sanjshah2001/sentimentanalysis
+    Image: timeseries
     
 steps:
 - task: Docker@1
@@ -23,7 +24,7 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerFile: Dockerfile
-    imageName: $(Build.Repository.Name)
+    imageName: $(Build.Repository.Name)/$(Image)
 
 - task: Docker@1
   displayName: Tag image
@@ -31,8 +32,8 @@ steps:
     command: Tag image
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    imageName: $(azureContainerRegistry)/$(Build.Repository.Name):latest
-    arguments: $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)
+    imageName: $(azureContainerRegistry)/$(Build.Repository.Name)/$(Image):latest
+    arguments: $(azureContainerRegistry)/$(Build.Repository.Name)/$(Image):$(Build.BuildId)
 
 - task: Docker@1
   displayName: Push image
@@ -40,7 +41,7 @@ steps:
     command: Push an image
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    imageName: $(Build.Repository.Name):$(Build.BuildId)
+    imageName: $(Build.Repository.Name):$(Build.BuildId)/$(Image)
 
 - task: Docker@1
   displayName: Run image
@@ -48,7 +49,7 @@ steps:
     command: Run an image
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    imageName: $(Build.Repository.Name):$(Build.BuildId)
+    imageName: $(Build.Repository.Name):$(Build.BuildId)/$(Image)
     
 - task: CopyFiles@2
   displayName: 'Copy Files'
