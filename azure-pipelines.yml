@@ -13,7 +13,7 @@ pool:
 variables:
     azureSubscriptionEndpoint: finservrg
     azureContainerRegistry: jpworkshop.azurecr.io
-    Build.Repository.Name: timeseries
+    Build.Repository.Name: sanjshah2001/sentimentanalysis
 
 steps:
 - task: Docker@1
