@@ -8,9 +8,9 @@ metadata:
 spec:
   containers:
   - name: gettsdata
-    image: jpworkshop.azurecr.io/timeseries
+    image: jpworkshop.azurecr.io/sanjshah2001/sentimentanalysis
     tty: true
 
   - name: pushtsdata
-    image: jpworkshop.azurecr.io/timeseries
+    image: jpworkshop.azurecr.io/sanjshah2001/sentimentanalysis
     tty: true
